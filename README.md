@@ -1,5 +1,6 @@
 # FRAES Website
 
+
 Официальный сайт проекта [FRAES](https://github.com/Nickitas/Fractal-Approximation-Erosion-Simulation) — CLI-инструмента для анализа береговых линий и фрактальной геометрии.
 
 ## Установка

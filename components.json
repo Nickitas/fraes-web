@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "radix-nova",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/index.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
+  "rtl": false,
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "aliases": {
+    "components": "shared/shadcn/components",
+    "utils": "shared/shadcn/lib/utils",
+    "ui": "shared/shadcn/components/ui",
+    "lib": "shared/shadcn/lib",
+    "hooks": "shared/shadcn/hooks"
+  },
+  "registries": {
+    "@magicui": "https://magicui.design/r/{name}",
+    "@lucide-animated": "https://lucide-animated.com/r/{name}.json"
+  }
+}

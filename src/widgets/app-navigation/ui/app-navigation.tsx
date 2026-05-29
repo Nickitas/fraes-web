@@ -6,6 +6,7 @@ import { DesktopNavigation } from "./components/desktop-navigation";
 import { Brand } from "./components/brand";
 import { DesktopActions } from "./components/desktop-actions";
 import { MobileMenu } from "./components/mobile-menu";
+import { AnimatedThemeToggler } from "@/shared/shadcn/ui/animated-theme-toggler";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -24,7 +25,10 @@ export function Navbar() {
           <DesktopNavigation isActive={isActive} />
         </div>
 
-        <DesktopActions />
+        <div className="flex items-center gap-4">
+          <AnimatedThemeToggler className="relative size-9 rounded-lg border p-2" />
+          <DesktopActions />
+        </div>
 
         {/* Mobile Menu Button */}
         <button

@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { cn } from "@/shared/shadcn/lib/utils";
 import { TextAnimate } from "@/shared/shadcn/ui/text-animate";
+import { MorphingText } from "@/shared/shadcn/ui/morphing-text";
 
 export interface TechBadge {
   label: string;
@@ -20,6 +21,7 @@ export interface HeroProps {
   version?: string;
   visualContent?: React.ReactNode;
   className?: string;
+  morphingTexts?: readonly string[];
 }
 
 export const Hero = ({
@@ -31,6 +33,7 @@ export const Hero = ({
   version,
   visualContent,
   className,
+  morphingTexts,
 }: HeroProps) => {
   const isExtended =
     !!visualContent || badges.length > 0 || ctaButtons.length > 0;
@@ -44,9 +47,13 @@ export const Hero = ({
         )}
       >
         <div className="mx-auto flex flex-col items-center justify-center gap-6">
-          <h1 className="text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-4xl">
-            {subtitle}
-          </h1>
+          {morphingTexts ? (
+            <MorphingText texts={[...morphingTexts]} />
+          ) : (
+            <p className="text-center text-4xl font-bold tracking-tight sm:text-5xl lg:text-4xl">
+              {subtitle}
+            </p>
+          )}
           {description && (
             <p className="mx-auto max-w-xl text-center text-lg text-muted-foreground sm:text-xl lg:mx-0">
               {description}
@@ -95,10 +102,20 @@ export const Hero = ({
 
   return (
     <div className={cn("py-4 md:py-8", className)}>
-      <TextAnimate animation="slideLeft" by="character" as="h1" className="mb-2 text-3xl font-bold sm:text-4xl">
+      <TextAnimate
+        animation="slideLeft"
+        by="character"
+        as="h1"
+        className="mb-2 text-3xl font-bold sm:text-4xl"
+      >
         {title}
       </TextAnimate>
-      <TextAnimate animation="slideLeft" by="character" delay={0.2} className="text-base text-muted-foreground sm:text-lg">
+      <TextAnimate
+        animation="slideLeft"
+        by="character"
+        delay={0.2}
+        className="text-base text-muted-foreground sm:text-lg"
+      >
         {subtitle}
       </TextAnimate>
     </div>

@@ -1,3 +1,5 @@
+import { SITE_CONFIG } from "@/shared/config/site";
+
 export interface DownloadFile {
   id: string;
   name: string;
@@ -18,7 +20,7 @@ export const mockDownloadsApi: DownloadFile[] = [
     id: "1",
     name: "fraes.exe",
     os: "windows",
-    version: "v1.0.0",
+    version: SITE_CONFIG.version,
     size: "8.9 MB",
     url: "/downloads/windows/fraes.exe",
     requirements: "Windows 10/11 (x64)",
@@ -35,7 +37,7 @@ export const mockDownloadsApi: DownloadFile[] = [
     id: "2",
     name: "fraes",
     os: "macos",
-    version: "v1.0.0",
+    version: SITE_CONFIG.version,
     size: "8.4 MB",
     url: "/downloads/macos/fraes",
     requirements: "macOS 11+ (Intel & Apple Silicon)",
@@ -52,7 +54,7 @@ export const mockDownloadsApi: DownloadFile[] = [
     id: "3",
     name: "fraes-linux-amd64.AppImage",
     os: "linux",
-    version: "v1.0.0",
+    version: SITE_CONFIG.version,
     size: "—",
     url: "",
     requirements: "Ubuntu 20.04+, Debian 11+, or compatible",

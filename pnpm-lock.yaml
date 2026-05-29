@@ -11,6 +11,9 @@ importers:
       '@fontsource-variable/geist':
         specifier: ^5.2.9
         version: 5.2.9
+      '@icons-pack/react-simple-icons':
+        specifier: ^13.13.0
+        version: 13.13.0(react@19.2.6)
       '@react-three/drei':
         specifier: ^10.7.7
         version: 10.7.7(@react-three/fiber@9.6.1(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(three@0.184.0))(@types/react@19.2.15)(@types/three@0.184.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(three@0.184.0)
@@ -29,9 +32,6 @@ importers:
       cobe:
         specifier: ^0.6.4
         version: 0.6.5
-      lucide-animated:
-        specifier: ^1.0.0
-        version: 1.0.0(motion@12.40.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react@19.2.6)
       lucide-react:
         specifier: ^1.16.0
         version: 1.16.0(react@19.2.6)
@@ -509,6 +509,12 @@ packages:
   '@humanwhocodes/retry@0.4.3':
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
+
+  '@icons-pack/react-simple-icons@13.13.0':
+    resolution: {integrity: sha512-B5HhQMIpcSH4z8IZ8HFhD59CboHceKYMpPC9kAwGyKntvPdyJJv26DLu4Z1wAjcCLyrJhf11tMhiQGom9Rxb9g==}
+    engines: {node: '>=24', pnpm: '>=10'}
+    peerDependencies:
+      react: ^16.13 || ^17 || ^18 || ^19
 
   '@inquirer/ansi@2.0.6':
     resolution: {integrity: sha512-I/INw4sHGlVZ/afZOckpLiDP9SmbMl1g/GCqeHjLw1Afw/0PlRs2tRFgTGWmdI0hoNuWZn3y2iHNmG1vyECyQQ==}
@@ -2698,12 +2704,6 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-animated@1.0.0:
-    resolution: {integrity: sha512-7KP+/B/wGwVizVCKMOHDgYFhiwRFim+eE/TFBZg03ZbcB/kwgoJvGDz+0Ya32+Tt6rpt7S1enLIWC7ela256Eg==}
-    peerDependencies:
-      motion: '>=11.0.0'
-      react: '>=18.0.0'
-
   lucide-react@1.16.0:
     resolution: {integrity: sha512-dYwyPzb4MEKpGUmNYk3WKWPnMrHs3FKM+q94kAnJrcDIqqn1hq2xY8scaS2ovsOCM5D51ey2gaRG3PBb1vgoYQ==}
     peerDependencies:
@@ -4044,6 +4044,10 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/retry@0.4.3': {}
+
+  '@icons-pack/react-simple-icons@13.13.0(react@19.2.6)':
+    dependencies:
+      react: 19.2.6
 
   '@inquirer/ansi@2.0.6': {}
 
@@ -6189,11 +6193,6 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
-
-  lucide-animated@1.0.0(motion@12.40.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react@19.2.6):
-    dependencies:
-      motion: 12.40.0(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
-      react: 19.2.6
 
   lucide-react@1.16.0(react@19.2.6):
     dependencies:

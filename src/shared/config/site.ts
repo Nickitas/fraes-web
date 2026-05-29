@@ -1,3 +1,5 @@
+const VERSION = import.meta.env.VITE_CLI_VERSION_NUMBER || "v1.0.0";
+
 export const SITE_CONFIG = {
   name: "FRAES",
   fullName: "Fractal Approximation of Coastal Geometry",
@@ -5,7 +7,7 @@ export const SITE_CONFIG = {
     "CLI-инструмент для проверки геометрии береговой линии, корректного измерения длины и математической демонстрации её фрактальных свойств",
   repository:
     "https://github.com/Nickitas/Fractal-Approximation-Erosion-Simulation",
-  version: "1.0.0",
+  version: VERSION,
   releaseDate: "2026-04-15",
 } as const;
 

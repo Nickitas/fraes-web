@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { cn } from "@/shared/shadcn/lib/utils";
+import { TextAnimate } from "@/shared/shadcn/ui/text-animate";
 
 export interface TechBadge {
   label: string;
@@ -94,8 +95,12 @@ export const Hero = ({
 
   return (
     <div className={cn("py-4 md:py-8", className)}>
-      <h1 className="mb-2 text-3xl font-bold sm:text-4xl">{title}</h1>
-      <p className="text-base text-muted-foreground sm:text-lg">{subtitle}</p>
+      <TextAnimate animation="slideLeft" by="character" as="h1" className="mb-2 text-3xl font-bold sm:text-4xl">
+        {title}
+      </TextAnimate>
+      <TextAnimate animation="slideLeft" by="character" delay={0.2} className="text-base text-muted-foreground sm:text-lg">
+        {subtitle}
+      </TextAnimate>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import type { DownloadFile } from "@/shared/api";
-import { TerminalIcon } from "lucide-animated";
-import { Monitor as MonitorIcon, Apple as AppleIcon } from "lucide-react";
+import { Monitor as MonitorIcon } from "lucide-react";
+import { SiApple, SiLinux } from "@icons-pack/react-simple-icons";
 
 interface DownloadCardProps {
   file: DownloadFile;
@@ -14,9 +14,9 @@ export function DownloadCard({ file, onDownload }: DownloadCardProps) {
       case "windows":
         return <MonitorIcon className={iconClass} />;
       case "macos":
-        return <AppleIcon className={iconClass} />;
+        return <SiApple className={iconClass} />;
       case "linux":
-        return <TerminalIcon className={iconClass} />;
+        return <SiLinux className={iconClass} />;
     }
   };
 
@@ -59,7 +59,7 @@ export function DownloadCard({ file, onDownload }: DownloadCardProps) {
       {file.disabled ? (
         <button
           disabled
-          className="w-full rounded-md bg-muted px-4 py-2 text-sm font-medium text-muted-foreground cursor-not-allowed"
+          className="w-full cursor-not-allowed rounded-md bg-muted px-4 py-2 text-sm font-medium text-muted-foreground"
         >
           {file.disabledReason || "Скоро появится"}
         </button>

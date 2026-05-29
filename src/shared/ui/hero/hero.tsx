@@ -94,7 +94,7 @@ export const Hero = ({
 
   return (
     <div className={cn("py-4 md:py-8", className)}>
-      <h1 className="mb-4 text-3xl font-bold sm:text-4xl">{title}</h1>
+      <h1 className="mb-2 text-3xl font-bold sm:text-4xl">{title}</h1>
       <p className="text-base text-muted-foreground sm:text-lg">{subtitle}</p>
     </div>
   );

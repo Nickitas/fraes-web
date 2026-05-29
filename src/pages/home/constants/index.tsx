@@ -1,10 +1,10 @@
 import type { ComponentType } from "react";
 import {
-  CompassIcon,
-  RotateCwIcon,
-  WavesIcon,
-} from "lucide-animated";
-import { Ruler as RulerIcon } from "lucide-react";
+  Compass as CompassIcon,
+  RotateCw as RotateCwIcon,
+  Waves as WavesIcon,
+  Ruler as RulerIcon,
+} from "lucide-react";
 
 export interface TechBadge {
   label: string;

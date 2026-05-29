@@ -1,7 +1,7 @@
 import { Hero } from "@/shared/ui/hero";
 import { SITE_CONFIG } from "@/shared/config/site";
-import { homePageContent } from "../constants";
 import { Globe } from "@/shared/shadcn/components/ui/globe";
+import { homePageContent } from "../constants";
 
 export const HeroSection = () => {
   const { hero } = homePageContent;

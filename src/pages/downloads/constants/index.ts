@@ -25,7 +25,7 @@ export const downloadsPageContent = {
   },
 
   changelog: {
-    title: "Версия 1.5.0",
+    title: "Версия v1.0.0",
     releaseDate: "15 января 2025",
     changes: [
       "Волновая эрозия с батиметрией",

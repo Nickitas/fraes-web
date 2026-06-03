@@ -1,4 +1,5 @@
 import { downloadsPageContent } from "../constants";
+import { RippleButton } from "@/shared/shadcn/ui/ripple-button";
 
 export const SourceCode = () => {
   const { sourceCode } = downloadsPageContent;
@@ -11,14 +12,15 @@ export const SourceCode = () => {
       <p className="text-sm text-muted-foreground sm:text-base">
         {sourceCode.description}
       </p>
-      <a
-        href={sourceCode.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-4 inline-block rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:bg-muted"
-      >
-        {sourceCode.buttonText}
-      </a>
+      <div className="mt-4">
+        <a
+          href={sourceCode.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <RippleButton>{sourceCode.buttonText}</RippleButton>
+        </a>
+      </div>
     </section>
   );
 };

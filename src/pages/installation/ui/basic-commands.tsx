@@ -1,4 +1,9 @@
 import { installationPageContent } from "../constants";
+import {
+  Terminal,
+  TypingAnimation,
+  AnimatedSpan,
+} from "@/shared/shadcn/components/terminal";
 
 export const BasicCommands = () => {
   const { basicCommands } = installationPageContent;
@@ -8,13 +13,16 @@ export const BasicCommands = () => {
       <h2 className="text-xl font-semibold sm:text-2xl">
         {basicCommands.title}
       </h2>
-      <div className="space-y-4">
+      <div className="space-y-6">
         {basicCommands.commands.map((cmd, i) => (
           <div key={i}>
-            <h3 className="mb-2 font-medium">{cmd.title}</h3>
-            <pre className="overflow-x-auto rounded bg-muted p-3 text-xs sm:p-4 sm:text-sm">
-              <code>{cmd.code}</code>
-            </pre>
+            <h3 className="mb-3 font-medium">{cmd.title}</h3>
+            <Terminal>
+              <TypingAnimation>{cmd.code}</TypingAnimation>
+              <AnimatedSpan className="text-green-500">
+                ✓ Command executed successfully
+              </AnimatedSpan>
+            </Terminal>
           </div>
         ))}
       </div>

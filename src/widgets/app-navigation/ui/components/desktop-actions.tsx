@@ -1,6 +1,7 @@
 import { useAuth } from "@/features/auth";
 import { ROUTES } from "@/shared/config/routes";
 import { Link } from "react-router";
+import { RippleButton } from "@/shared/shadcn/ui/ripple-button";
 
 export const DesktopActions = () => {
   const { isAuthenticated, logout, user } = useAuth();
@@ -10,19 +11,11 @@ export const DesktopActions = () => {
       {isAuthenticated ? (
         <div className="flex items-center gap-3">
           <span className="text-sm text-muted-foreground">{user?.name}</span>
-          <button
-            onClick={logout}
-            className="rounded-md border px-3 py-1.5 text-sm transition-colors hover:bg-muted"
-          >
-            Выйти
-          </button>
+          <RippleButton onClick={logout}>Выйти</RippleButton>
         </div>
       ) : (
-        <Link
-          to={ROUTES.login}
-          className="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-        >
-          Войти
+        <Link to={ROUTES.login}>
+          <RippleButton>Войти</RippleButton>
         </Link>
       )}
     </div>

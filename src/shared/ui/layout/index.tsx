@@ -1,7 +1,9 @@
 import { useTheme } from "@/shared/shadcn/components/theme-provider";
 import { Particles } from "@/shared/shadcn/ui/particles";
 import { Navbar } from "@/widgets/app-navigation";
+import { Footer } from "@/widgets/footer";
 import { type ReactNode } from "react";
+import { useLocation } from "react-router-dom";
 
 interface LayoutProps {
   children: ReactNode;
@@ -10,6 +12,8 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   const { theme } = useTheme();
   const color = theme === "dark" ? "#ffffff" : "#000000";
+  const location = useLocation();
+  const isAuthPage = location.pathname === "/login";
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background">
@@ -17,6 +21,7 @@ export function Layout({ children }: LayoutProps) {
       <main className="container mx-auto px-4 pt-15 pb-12">
         <div className="mx-auto">{children}</div>
       </main>
+      {!isAuthPage && <Footer />}
       <Particles
         className="absolute inset-0 z-0"
         quantity={100}

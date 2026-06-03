@@ -2,6 +2,8 @@ import { Link } from "react-router";
 import { cn } from "@/shared/shadcn/lib/utils";
 import { TextAnimate } from "@/shared/shadcn/ui/text-animate";
 import { MorphingText } from "@/shared/shadcn/ui/morphing-text";
+import { InteractiveHoverButton } from "@/shared/shadcn/ui/interactive-hover-button";
+import { RippleButton } from "@/shared/shadcn/ui/ripple-button";
 
 export interface TechBadge {
   label: string;
@@ -67,27 +69,26 @@ export const Hero = ({
                 </span>
               ))}
               {version && (
-                <span className="rounded-md bg-muted px-2 py-1">
-                  v{version}
-                </span>
+                <span className="rounded-md bg-muted px-2 py-1">{version}</span>
               )}
             </div>
           )}
           {ctaButtons.length > 0 && (
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              {ctaButtons.map((btn) => (
-                <Link
-                  key={btn.label}
-                  to={btn.route}
-                  className={cn(
-                    "rounded-lg px-6 py-3 text-center font-medium transition-colors",
-                    btn.route === "/downloads"
-                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                      : "border hover:bg-muted"
+              {ctaButtons.map((btn, index) => (
+                <div key={btn.label}>
+                  {index === 0 ? (
+                    <Link to={btn.route}>
+                      <InteractiveHoverButton>
+                        {btn.label}
+                      </InteractiveHoverButton>
+                    </Link>
+                  ) : (
+                    <Link to={btn.route}>
+                      <RippleButton>{btn.label}</RippleButton>
+                    </Link>
                   )}
-                >
-                  {btn.label}
-                </Link>
+                </div>
               ))}
             </div>
           )}

@@ -1,7 +1,7 @@
 export const loginPageContent = {
   title: "Вход в систему",
   subtitle: "Войдите для доступа к скачиванию файлов",
-  demoCredentials: "Демо-доступ: user@example.com / password",
+  demoCredentials: "Для полученеи доступа, обратитесь к @NeDatsky",
   emailLabel: "Email",
   passwordLabel: "Пароль",
   emailPlaceholder: "user@example.com",

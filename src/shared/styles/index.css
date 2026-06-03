@@ -143,6 +143,16 @@
   }
 }
 
+@layer utilities {
+  .brand-gradient {
+    background-image: linear-gradient(to right, #3b82f6, #8b5cf6, #06b6d4);
+  }
+
+  .dark .brand-gradient {
+    background-image: linear-gradient(to right, #60a5fa, #a78bfa, #22d3ee);
+  }
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;

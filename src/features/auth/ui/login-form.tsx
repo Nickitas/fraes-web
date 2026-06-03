@@ -3,6 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../model";
 import { ROUTES } from "@/shared/config/routes";
 import { loginPageContent } from "../constants";
+import { RippleButton } from "@/shared/shadcn/ui/ripple-button";
+import { MagicCard } from "@/shared/shadcn/ui/magic-card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/shared/shadcn/components/ui/card";
 
 export function LoginForm() {
   const [email, setEmail] = useState("user@example.com");
@@ -30,67 +40,78 @@ export function LoginForm() {
   };
 
   return (
-    <div className="w-full max-w-md space-y-6 rounded-lg border p-6 sm:p-8">
-      <div className="space-y-2 text-center">
-        <h1 className="text-2xl font-bold sm:text-3xl">
-          {loginPageContent.title}
-        </h1>
-        <p className="text-sm text-muted-foreground sm:text-base">
-          {loginPageContent.subtitle}
-        </p>
-      </div>
-
-      {error && (
-        <div className="rounded-md bg-destructive/15 p-3 text-sm text-destructive">
-          {error}
-        </div>
-      )}
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="space-y-2">
-          <label htmlFor="email" className="text-sm font-medium">
-            {loginPageContent.emailLabel}
-          </label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full rounded-md border px-3 py-2 text-sm"
-            placeholder={loginPageContent.emailPlaceholder}
-          />
-        </div>
-
-        <div className="space-y-2">
-          <label htmlFor="password" className="text-sm font-medium">
-            {loginPageContent.passwordLabel}
-          </label>
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="w-full rounded-md border px-3 py-2 text-sm"
-            placeholder={loginPageContent.passwordPlaceholder}
-          />
-        </div>
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground disabled:cursor-not-allowed disabled:opacity-50"
+    <div className="flex w-full max-w-sm items-center justify-center p-4">
+      <Card className="border-none shadow-none p-0">
+        <MagicCard
+          gradientSize={200}
+          gradientColor="rgba(139, 92, 246, 0.4)"
+          gradientFrom="rgba(59, 130, 246, 0.3)"
+          gradientTo="rgba(6, 182, 212, 0.3)"
+          className="p-0 shadow-xl"
         >
-          {loading
-            ? loginPageContent.submitButtonLoading
-            : loginPageContent.submitButton}
-        </button>
-      </form>
+          <CardHeader className="border-border/50 border-b p-6 [.border-b]:pb-4">
+            <CardTitle className="text-xl">{loginPageContent.title}</CardTitle>
+            <CardDescription className="text-sm">
+              {loginPageContent.subtitle}
+            </CardDescription>
+          </CardHeader>
 
-      <div className="text-center text-xs text-muted-foreground sm:text-sm">
-        {loginPageContent.demoCredentials}
-      </div>
+          {error && (
+            <div className="px-6 pt-4">
+              <div className="rounded-lg border border-destructive/50 bg-destructive/10 px-3 py-2 text-sm text-destructive">
+                {error}
+              </div>
+            </div>
+          )}
+
+          <CardContent className="p-6 pt-4">
+            <form className="grid gap-4">
+              <div className="grid gap-2">
+                <label htmlFor="email" className="text-sm font-medium leading-none">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-none transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  placeholder="name@example.com"
+                />
+              </div>
+              <div className="grid gap-2">
+                <label htmlFor="password" className="text-sm font-medium leading-none">
+                  Password
+                </label>
+                <input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-none transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  placeholder="••••••••"
+                />
+              </div>
+            </form>
+          </CardContent>
+
+          <CardFooter className="border-border/50 border-t p-6 [.border-t]:pt-4 flex-col gap-4">
+            <RippleButton
+              type="submit"
+              disabled={loading}
+              className="w-full"
+              onClick={handleSubmit}
+            >
+              {loading ? "Загрузка..." : "Войти"}
+            </RippleButton>
+            <p className="text-center text-xs text-muted-foreground">
+              {loginPageContent.demoCredentials}
+            </p>
+          </CardFooter>
+        </MagicCard>
+      </Card>
     </div>
   );
 }

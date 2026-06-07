@@ -15,8 +15,8 @@ import {
 } from "@/shared/shadcn/components/ui/card";
 
 export function LoginForm() {
-  const [email, setEmail] = useState("user@example.com");
-  const [password, setPassword] = useState("password");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
@@ -41,7 +41,7 @@ export function LoginForm() {
 
   return (
     <div className="flex w-full max-w-sm items-center justify-center p-4">
-      <Card className="border-none shadow-none p-0">
+      <Card className="border-none p-0 shadow-none">
         <MagicCard
           gradientSize={200}
           gradientColor="rgba(139, 92, 246, 0.4)"
@@ -49,7 +49,7 @@ export function LoginForm() {
           gradientTo="rgba(6, 182, 212, 0.3)"
           className="p-0 shadow-xl"
         >
-          <CardHeader className="border-border/50 border-b p-6 [.border-b]:pb-4">
+          <CardHeader className="border-b border-border/50 p-6 [.border-b]:pb-4">
             <CardTitle className="text-xl">{loginPageContent.title}</CardTitle>
             <CardDescription className="text-sm">
               {loginPageContent.subtitle}
@@ -67,7 +67,10 @@ export function LoginForm() {
           <CardContent className="p-6 pt-4">
             <form className="grid gap-4">
               <div className="grid gap-2">
-                <label htmlFor="email" className="text-sm font-medium leading-none">
+                <label
+                  htmlFor="email"
+                  className="text-sm leading-none font-medium"
+                >
                   Email
                 </label>
                 <input
@@ -76,12 +79,15 @@ export function LoginForm() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-none transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-none transition-colors focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
                   placeholder="name@example.com"
                 />
               </div>
               <div className="grid gap-2">
-                <label htmlFor="password" className="text-sm font-medium leading-none">
+                <label
+                  htmlFor="password"
+                  className="text-sm leading-none font-medium"
+                >
                   Password
                 </label>
                 <input
@@ -90,14 +96,14 @@ export function LoginForm() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-none transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-none transition-colors focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
                   placeholder="••••••••"
                 />
               </div>
             </form>
           </CardContent>
 
-          <CardFooter className="border-border/50 border-t p-6 [.border-t]:pt-4 flex-col gap-4">
+          <CardFooter className="flex-col gap-4 border-t border-border/50 p-6 [.border-t]:pt-4">
             <RippleButton
               type="submit"
               disabled={loading}

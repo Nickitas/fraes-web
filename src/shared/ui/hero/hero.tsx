@@ -85,7 +85,9 @@ export const Hero = ({
                     </Link>
                   ) : (
                     <Link to={btn.route}>
-                      <RippleButton>{btn.label}</RippleButton>
+                      <RippleButton className="w-full">
+                        {btn.label}
+                      </RippleButton>
                     </Link>
                   )}
                 </div>

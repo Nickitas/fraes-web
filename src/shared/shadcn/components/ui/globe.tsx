@@ -4,6 +4,7 @@ import { useEffect, useRef, useMemo } from "react";
 import createGlobe, { type COBEOptions } from "cobe";
 import { useMotionValue, useSpring } from "motion/react";
 import { useTheme } from "next-themes";
+import { useWeather, getWeatherEmoji, getUVDescription } from "@/shared/hooks/useWeather";
 import { cn } from "../../lib/utils";
 
 const MOVEMENT_DAMPING = 1400;
@@ -74,6 +75,11 @@ export function Globe({
   const isDark = useMemo(() => {
     return theme === "dark" || (theme === "system" && systemTheme === "dark");
   }, [theme, systemTheme]);
+
+  const { weather, loading, error } = useWeather(
+    WEATHER_LOCATION[0],
+    WEATHER_LOCATION[1]
+  );
 
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
@@ -187,12 +193,12 @@ export function Globe({
           left: 0,
           top: 0,
           opacity: 0,
-          transform: "translate(-50%, -120%)",
+          transform: "translate(-50%, 120%)",
         }}
       >
         <div
           className={cn(
-            "relative overflow-hidden rounded-xl px-3 py-2 shadow-2xl ring-1 backdrop-blur-sm",
+            "relative overflow-hidden rounded-xl px-3 py-2 shadow-2xl ring-1 backdrop-blur-sm w-48",
             isDark
               ? "bg-gradient-to-br from-blue-500/95 to-blue-600/95 ring-white/20"
               : "bg-white/95 ring-blue-500/30"
@@ -206,52 +212,156 @@ export function Globe({
                 : "bg-gradient-to-t from-blue-50/50 to-transparent"
             )}
           />
-          <div className="relative flex items-center gap-2">
-            <div className="flex flex-col items-center">
-              <div className="text-2xl drop-shadow-md">🌤️</div>
-            </div>
-            <div className="flex flex-col">
-              <div
-                className={cn(
-                  "text-xl font-bold drop-shadow-md",
-                  isDark ? "text-white" : "text-gray-900"
-                )}
-              >
-                24°C
-              </div>
+          {loading ? (
+            <div className="relative flex items-center justify-center gap-1.5">
+              <div className="text-xl animate-pulse">🔄</div>
               <div
                 className={cn(
                   "text-xs font-medium",
                   isDark ? "text-white/90" : "text-gray-600"
                 )}
               >
-                Сочи
+                Загрузка...
               </div>
             </div>
-          </div>
-          <div
-            className={cn(
-              "mt-1.5 flex items-center justify-between gap-2 border-t pt-1.5",
-              isDark ? "border-white/20" : "border-gray-200"
-            )}
-          >
-            <div
-              className={cn(
-                "text-[10px]",
-                isDark ? "text-white/70" : "text-gray-500"
-              )}
-            >
-              Влажность: 65%
+          ) : error ? (
+            <div className="relative flex items-center justify-center gap-1.5">
+              <div className="text-xl">❌</div>
+              <div
+                className={cn(
+                  "text-xs font-medium",
+                  isDark ? "text-white/90" : "text-gray-600"
+                )}
+              >
+                Ошибка
+              </div>
             </div>
-            <div
-              className={cn(
-                "text-[10px]",
-                isDark ? "text-white/70" : "text-gray-500"
-              )}
-            >
-              Ветер: 3 м/с
-            </div>
-          </div>
+          ) : weather ? (
+            <>
+              <div className="relative flex items-center justify-between gap-2">
+                <div className="flex flex-col items-center">
+                  <div className="text-2xl drop-shadow-md">
+                    {getWeatherEmoji(weather.weatherCode)}
+                  </div>
+                </div>
+                <div className="flex flex-col flex-1">
+                  <div
+                    className={cn(
+                      "text-xl font-bold drop-shadow-md",
+                      isDark ? "text-white" : "text-gray-900"
+                    )}
+                  >
+                    {weather.temperature}°C
+                  </div>
+                  <div
+                    className={cn(
+                      "text-[10px] font-medium",
+                      isDark ? "text-white/90" : "text-gray-600"
+                    )}
+                  >
+                    {weather.location}
+                  </div>
+                </div>
+              </div>
+              <div
+                className={cn(
+                  "mt-1.5 grid grid-cols-2 gap-x-2 gap-y-1 border-t pt-1.5",
+                  isDark ? "border-white/20" : "border-gray-200"
+                )}
+              >
+                <div className="flex flex-col">
+                  <div
+                    className={cn(
+                      "text-[8px] uppercase leading-tight",
+                      isDark ? "text-white/60" : "text-gray-500"
+                    )}
+                  >
+                    Ощущается
+                  </div>
+                  <div
+                    className={cn(
+                      "text-xs font-semibold leading-tight",
+                      isDark ? "text-white" : "text-gray-900"
+                    )}
+                  >
+                    {weather.apparentTemperature}°C
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                  <div
+                    className={cn(
+                      "text-[8px] uppercase leading-tight",
+                      isDark ? "text-white/60" : "text-gray-500"
+                    )}
+                  >
+                    Влажность
+                  </div>
+                  <div
+                    className={cn(
+                      "text-xs font-semibold leading-tight",
+                      isDark ? "text-white" : "text-gray-900"
+                    )}
+                  >
+                    {weather.humidity}%
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                  <div
+                    className={cn(
+                      "text-[8px] uppercase leading-tight",
+                      isDark ? "text-white/60" : "text-gray-500"
+                    )}
+                  >
+                    Ветер
+                  </div>
+                  <div
+                    className={cn(
+                      "text-xs font-semibold leading-tight",
+                      isDark ? "text-white" : "text-gray-900"
+                    )}
+                  >
+                    {weather.windSpeed} км/ч
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                  <div
+                    className={cn(
+                      "text-[8px] uppercase leading-tight",
+                      isDark ? "text-white/60" : "text-gray-500"
+                    )}
+                  >
+                    Давление
+                  </div>
+                  <div
+                    className={cn(
+                      "text-xs font-semibold leading-tight",
+                      isDark ? "text-white" : "text-gray-900"
+                    )}
+                  >
+                    {weather.pressure} гПа
+                  </div>
+                </div>
+                <div className="flex flex-col col-span-2">
+                  <div
+                    className={cn(
+                      "text-[8px] uppercase leading-tight",
+                      isDark ? "text-white/60" : "text-gray-500"
+                    )}
+                  >
+                    UV-индекс
+                  </div>
+                  <div
+                    className={cn(
+                      "text-xs font-semibold leading-tight",
+                      isDark ? "text-white" : "text-gray-900"
+                    )}
+                  >
+                    {weather.uvIndex} {getUVDescription(weather.uvIndex)}
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : null}
         </div>
       </div>
     </div>

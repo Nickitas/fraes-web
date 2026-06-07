@@ -7,10 +7,7 @@ export const HeroSection = () => {
   const { hero } = homePageContent;
 
   const visualContent = (
-    <div className="relative top-10">
-      <span className="pointer-events-none absolute top-0 left-1/2 z-0 -translate-x-1/2 bg-linear-to-b from-black/70 to-transparent bg-clip-text text-center text-7xl leading-none font-semibold whitespace-pre-wrap text-transparent dark:from-white/50">
-        FRAES
-      </span>
+    <div className="relative top-0">
       <Globe className="z-10" />
     </div>
   );

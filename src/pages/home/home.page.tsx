@@ -8,8 +8,8 @@ export function HomePage() {
   return (
     <div className="space-y-12 sm:space-y-16">
       <div className="relative overflow-x-hidden">
-        <HeroSection />
         <Meteors />
+        <HeroSection />
       </div>
       <FeaturesSection />
       <ScientificSection />

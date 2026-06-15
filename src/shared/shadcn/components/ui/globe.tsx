@@ -69,7 +69,6 @@ export function Globe({
   const weatherRef = useRef<HTMLDivElement>(null);
 
   const phiRef = useRef(0);
-  const widthRef = useRef(0);
 
   const { theme, systemTheme } = useTheme();
   const isDark = useMemo(() => {
@@ -111,35 +110,61 @@ export function Globe({
   };
 
   useEffect(() => {
-    const onResize = () => {
-      if (canvasRef.current) {
-        widthRef.current = canvasRef.current.offsetWidth;
-      }
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    let globe: ReturnType<typeof createGlobe> | null = null;
+    let frameId = 0;
+    let width = 0;
+
+    const initGlobe = (nextWidth: number) => {
+      if (nextWidth <= 0) return;
+
+      width = nextWidth;
+
+      globe?.destroy();
+      globe = createGlobe(canvas, {
+        ...config,
+        width: nextWidth * 2,
+        height: nextWidth * 2,
+      });
+
+      canvas.style.opacity = "1";
     };
 
-    window.addEventListener("resize", onResize);
-    onResize();
+    const resizeObserver = new ResizeObserver((entries) => {
+      const nextWidth = entries[0]?.contentRect.width ?? 0;
+      if (nextWidth <= 0) return;
 
-    const globe = createGlobe(canvasRef.current!, {
-      ...config,
-      width: widthRef.current * 2,
-      height: widthRef.current * 2,
-      onRender: (state: any) => {
+      if (!globe) {
+        initGlobe(nextWidth);
+        return;
+      }
+
+      width = nextWidth;
+    });
+
+    resizeObserver.observe(canvas);
+
+    const animate = () => {
+      if (globe && width > 0) {
         if (!pointerInteracting.current) {
           phiRef.current += 0.005;
         }
 
         const phi = phiRef.current + rs.get();
 
-        state.phi = phi;
-        state.width = widthRef.current * 2;
-        state.height = widthRef.current * 2;
+        globe.update({
+          phi,
+          width: width * 2,
+          height: width * 2,
+        });
 
         const projected = projectLocation(
           WEATHER_LOCATION[0],
           WEATHER_LOCATION[1],
           phi,
-          widthRef.current
+          width
         );
 
         if (weatherRef.current) {
@@ -147,20 +172,19 @@ export function Globe({
           weatherRef.current.style.top = `${projected.y}px`;
           weatherRef.current.style.opacity = projected.visible ? "1" : "0";
         }
-      },
-    } as any);
-
-    setTimeout(() => {
-      if (canvasRef.current) {
-        canvasRef.current.style.opacity = "1";
       }
-    }, 0);
+
+      frameId = requestAnimationFrame(animate);
+    };
+
+    frameId = requestAnimationFrame(animate);
 
     return () => {
-      globe.destroy();
-      window.removeEventListener("resize", onResize);
+      cancelAnimationFrame(frameId);
+      resizeObserver.disconnect();
+      globe?.destroy();
     };
-  }, [config, rs]);
+  }, [config]);
 
   return (
     <div

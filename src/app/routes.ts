@@ -3,6 +3,7 @@ import { DownloadsPage } from "@/pages/downloads/downloads.page";
 import { HomePage } from "@/pages/home/home.page";
 import { InstallationPage } from "@/pages/installation/installation.page";
 import { LoginPage } from "@/pages/login/login.page";
+import { ReleasesPage } from "@/pages/releases/releases.page";
 
 export const routes = [
   {
@@ -20,6 +21,10 @@ export const routes = [
   {
     path: "/downloads",
     Component: DownloadsPage,
+  },
+  {
+    path: "/releases",
+    Component: ReleasesPage,
   },
   {
     path: "/login",

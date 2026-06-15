@@ -3,21 +3,22 @@ export const FOOTER_LINKS = {
     { label: "О проекте", href: "/about" },
     { label: "Установка", href: "/installation" },
     { label: "Скачать", href: "/downloads" },
+    { label: "Версии", href: "/releases" },
   ],
   resources: [
     {
       label: "Документация",
-      href: "https://github.com/Nickitas/Fractal-Approximation-Erosion-Simulation#readme",
+      href: "https://github.com/Nickitas/fraes-cli",
     },
     {
       label: "GitHub Issues",
-      href: "https://github.com/Nickitas/Fractal-Approximation-Erosion-Simulation/issues",
+      href: "https://github.com/Nickitas/fraes-cli",
     },
   ],
   legal: [
     {
       label: "Лицензия MIT",
-      href: "https://github.com/Nickitas/Fractal-Approximation-Erosion-Simulation/blob/main/LICENSE",
+      href: "https://github.com/Nickitas/fraes-cli/blob/main/LICENSE",
     },
   ],
 } as const;

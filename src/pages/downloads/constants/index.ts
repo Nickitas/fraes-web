@@ -21,7 +21,7 @@ export const downloadsPageContent = {
     description:
       "Вы также можете собрать FRAES из исходников. Код доступен на GitHub под лицензией MIT.",
     buttonText: "Открыть на GitHub →",
-    url: "https://github.com/Nickitas/Fractal-Approximation-Erosion-Simulation",
+    url: "https://github.com/Nickitas/fraes-cli",
   },
 
   changelog: {

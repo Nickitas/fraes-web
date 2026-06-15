@@ -140,8 +140,11 @@ export const MobileMenu = ({
                   </RippleButton>
                 </div>
               ) : (
-                <Link to={ROUTES.login} onClick={() => setMobileMenuOpen(false)}>
-                  <RippleButton className="w-full">
+                <Link
+                  to={ROUTES.login}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <RippleButton className="w-fit">
                     <span className="flex items-center justify-center gap-2">
                       <span>Войти</span>
                       <ChevronRight className="size-4" />

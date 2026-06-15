@@ -5,5 +5,6 @@ export const ROUTES = {
   about: "/about",
   installation: "/installation",
   downloads: "/downloads",
+  releases: "/releases",
   login: "/login",
 } as const;

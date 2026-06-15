@@ -4,9 +4,8 @@ export const SITE_CONFIG = {
   name: "FRAES",
   fullName: "Fractal Approximation of Coastal Geometry",
   description:
-    "CLI-инструмент для проверки геометрии береговой линии, корректного измерения длины и математической демонстрации её фрактальных свойств",
-  repository:
-    "https://github.com/Nickitas/Fractal-Approximation-Erosion-Simulation",
+    "CLI-инструмент для проверки геометрии береговой линии, математического моделирования прибрежных систем",
+  repository: "https://github.com/Nickitas/fraes-cli",
   version: VERSION,
   releaseDate: "2026-04-15",
 } as const;
@@ -14,7 +13,7 @@ export const SITE_CONFIG = {
 export const SOCIAL_LINKS = [
   {
     name: "GitHub",
-    url: "https://github.com/Nickitas/Fractal-Approximation-Erosion-Simulation",
+    url: "https://github.com/Nickitas/fraes-cli",
     icon: "📦",
   },
 ] as const;

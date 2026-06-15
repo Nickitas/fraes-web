@@ -26,12 +26,8 @@ export const homePageContent = {
     title: "FRAES",
     subtitle: "Fractal Approximation of Coastal Geometry",
     description:
-      "CLI-инструмент для проверки геометрии береговой линии, корректного измерения длины и математической демонстрации её фрактальных свойств",
-    badges: [
-      { label: "Go 1.23+" },
-      { label: "Open Source" },
-      { label: "MIT License" },
-    ] as TechBadge[],
+      "CLI-инструмент для проверки геометрии береговой линии, математического моделирования прибрежных систем",
+    badges: [{ label: "Go 1.23+" }, { label: "coastline" }] as TechBadge[],
     ctaButtons: [
       { label: "Скачать", route: "/downloads" as const },
       { label: "Подробнее", route: "/about" as const },

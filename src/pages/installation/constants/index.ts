@@ -14,7 +14,7 @@ export const installationPageContent = {
     steps: [
       {
         title: "1. Клонирование репозитория",
-        code: "git clone https://github.com/Nickitas/Fractal-Approximation-Erosion-Simulation.git\ncd Fractal-Approximation-Erosion-Simulation",
+        code: "git clone https://github.com/Nickitas/fraes-cli.git\ncd Fractal-Approximation-Erosion-Simulation",
         note: "",
       },
       {

@@ -18,11 +18,11 @@ export interface DownloadFile {
 export const mockDownloadsApi: DownloadFile[] = [
   {
     id: "1",
-    name: "fraes.exe",
+    name: "lito.exe",
     os: "windows",
     version: SITE_CONFIG.version,
     size: "8.9 MB",
-    url: "/downloads/windows/fraes.exe",
+    url: "/downloads/windows/lito.exe",
     requirements: "Windows 10/11 (x64)",
     goVersion: "Go 1.23",
     releaseDate: "2025-05-28",
@@ -35,11 +35,11 @@ export const mockDownloadsApi: DownloadFile[] = [
   },
   {
     id: "2",
-    name: "fraes",
+    name: "lito",
     os: "macos",
     version: SITE_CONFIG.version,
     size: "8.4 MB",
-    url: "/downloads/macos/fraes",
+    url: "/downloads/macos/lito",
     requirements: "macOS 11+ (Intel & Apple Silicon)",
     goVersion: "Go 1.23",
     releaseDate: "2025-05-28",
@@ -52,7 +52,7 @@ export const mockDownloadsApi: DownloadFile[] = [
   },
   {
     id: "3",
-    name: "fraes-linux-amd64.AppImage",
+    name: "lito-linux-amd64.AppImage",
     os: "linux",
     version: SITE_CONFIG.version,
     size: "—",

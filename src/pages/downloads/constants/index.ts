@@ -6,7 +6,7 @@ export interface ChangelogItem {
 
 export const downloadsPageContent = {
   hero: {
-    title: "Скачать FRAES",
+    title: "Скачать Litora-CLI",
     subtitle: "Выберите версию для вашей операционной системы",
   },
 
@@ -19,9 +19,9 @@ export const downloadsPageContent = {
   sourceCode: {
     title: "Исходный код",
     description:
-      "Вы также можете собрать FRAES из исходников. Код доступен на GitHub под лицензией MIT.",
+      "Вы также можете собрать Litora из исходников. Код доступен на GitHub под лицензией MIT.",
     buttonText: "Открыть на GitHub →",
-    url: "https://github.com/Nickitas/fraes-cli",
+    url: "https://github.com/Nickitas/litora-cli",
   },
 
   changelog: {

@@ -1,7 +1,7 @@
-# FRAES Website
+# Litora Website
 
 
-Официальный сайт проекта [FRAES](https://github.com/Nickitas/fraes-cli) — CLI-инструмента для анализа береговых линий и фрактальной геометрии.
+Официальный сайт проекта [Litora](https://github.com/Nickitas/litora-cli) — CLI-утилита для геоморфологического моделирования береговых систем, анализа фрактальных свойств береговой линии и физически обоснованного моделирования эрозионных процессов.
 
 ## Установка
 
@@ -79,7 +79,7 @@ MIT
 
 ## Ссылки
 
-- [FRAES Repository](https://github.com/Nickitas/fraes-cli)
+- [Repository](https://github.com/Nickitas/litora-cli)
 - [FSD Methodology](https://feature-sliced.design/)
 - [React Documentation](https://react.dev/)
 - [Vite Documentation](https://vite.dev/)

@@ -16,7 +16,7 @@ export interface ScientificGoal {
 
 export const aboutPageContent = {
   hero: {
-    title: "О проекте FRAES",
+    title: "О проекте Litora",
     subtitle: "Fractal Approximation of Coastal Geometry",
   },
 
@@ -78,8 +78,8 @@ export const aboutPageContent = {
 
   repository: {
     title: "Репозиторий",
-    url: "https://github.com/Nickitas/fraes-cli",
-    displayUrl: "github.com/Nickitas/Fractal-Approximation-Erosion-Simulation",
+    url: "https://github.com/Nickitas/litora-cli",
+    displayUrl: "github.com/Nickitas/litora-cli",
     description:
       "Исходный код, документация и issue tracker доступны на GitHub",
   },

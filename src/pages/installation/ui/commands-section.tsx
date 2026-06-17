@@ -15,7 +15,13 @@ export const CommandsSection = () => {
       {/* Demo terminal with example command */}
       <div className="mb-6">
         <Terminal>
-          <TypingAnimation>fraes model erosion --steps 10 --bathymetry data/black-sea-bathymetry.json</TypingAnimation>
+          <TypingAnimation>
+            ./lito model erosion \ --steps 15 \ --erosion-strength 50 \
+            --wave-direction 45 \ --wind-speed 14 \ --bathymetry
+            data/black-sea-bathymetry.json \ --lithology
+            data/black-sea-lithology.json \ --enable-lithology \ --output
+            ./output/erosion-full
+          </TypingAnimation>
           <AnimatedSpan className="text-blue-400">
             ✔ Loading bathymetry data...
           </AnimatedSpan>

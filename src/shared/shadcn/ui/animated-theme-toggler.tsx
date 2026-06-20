@@ -177,7 +177,7 @@ export const AnimatedThemeToggler = ({
       const newTheme = !isDark;
       setIsDark(newTheme);
       document.documentElement.classList.toggle("dark");
-      localStorage.setItem("fraes-theme", newTheme ? "dark" : "light");
+      localStorage.setItem("litora-theme", newTheme ? "dark" : "light");
     };
 
     if (typeof document.startViewTransition !== "function") {

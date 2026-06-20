@@ -23,11 +23,15 @@ export interface CliCommand {
 
 export const homePageContent = {
   hero: {
-    title: "FRAES",
-    subtitle: "Fractal Approximation of Coastal Geometry",
+    title: "Litora",
+    subtitle: "Моделирование эрозии прибрежных систем",
     description:
-      "CLI-инструмент для проверки геометрии береговой линии, математического моделирования прибрежных систем",
-    badges: [{ label: "Go 1.23+" }, { label: "coastline" }] as TechBadge[],
+      "CLI-утилита для геоморфологического моделирования береговых систем, анализа фрактальных свойств береговой линии и физически обоснованного моделирования эрозионных процессов",
+    badges: [
+      { label: "Go 1.23+" },
+      { label: "Python" },
+      { label: "coastline" },
+    ] as TechBadge[],
     ctaButtons: [
       { label: "Скачать", route: "/downloads" as const },
       { label: "Подробнее", route: "/about" as const },
@@ -39,25 +43,25 @@ export const homePageContent = {
       icon: CompassIcon,
       title: "Валидация геометрии",
       description:
-        "Проверка геометрии береговой линии из JSON/GeoJSON файлов с детальной диагностикой",
+        "Проверка топологической корректности, замкнутости контуров, пересечений сегментов береговой линии",
     },
     {
       icon: RulerIcon,
       title: "Геодезический расчёт",
       description:
-        "Корректное измерение длины береговой линии по географическим координатам",
+        "Корректное измерение длины береговой линии с учётом кривизны Земли через формулу Haversine",
     },
     {
       icon: RotateCwIcon,
       title: "Фрактальный анализ",
       description:
-        "Классическая и органическая фрактальная аппроксимация с расчётом размерности",
+        "Box-counting размерность с усреднением по нескольким смещениям сетки и статистической устойчивостью",
     },
     {
       icon: WavesIcon,
       title: "Волновая эрозия",
       description:
-        "Физически обоснованная модель с учётом батиметрии и направленности волн",
+        "Комплексная физическая модель с батиметрией, литологией, транспортом наносов и временной динамикой",
     },
   ] as FeatureCard[],
 
@@ -75,17 +79,20 @@ export const homePageContent = {
 
   cliCommands: [
     {
-      command: "fraes real coastline",
+      command: "lito real coastline ",
       description: "Метрики реальной береговой линии",
     },
     {
-      command: "fraes model paradox",
-      description: "Демонстрация парадокса береговой линии",
+      command: "lito model dimension",
+      description: "Фрактальный анализ береговой линии методом box-counting",
     },
-    { command: "fraes model koch", description: "Классическая кривая Коха" },
     {
-      command: "fraes model erosion",
-      description: "Волновая эрозия с батиметрией",
+      command: "lito model erosion",
+      description: "Геоморфологическое моделирование эрозии береговой линии",
+    },
+    {
+      command: "lito source",
+      description: "Информация об источнике данных",
     },
   ] as CliCommand[],
 } as const;

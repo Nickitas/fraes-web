@@ -21,7 +21,7 @@ export const HeroSection = () => {
       ctaButtons={hero.ctaButtons}
       version={SITE_CONFIG.version}
       visualContent={visualContent}
-      morphingTexts={["CLI-App", SITE_CONFIG.name]}
+      morphingTexts={["CLI", SITE_CONFIG.name]}
     />
   );
 };

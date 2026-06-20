@@ -9,7 +9,7 @@ export interface AppRelease {
 
 export const releasesPageContent = {
   hero: {
-    title: "Версии FRAES",
+    title: "Версии Litora CLI",
     subtitle: "История релизов и загрузка с GitHub",
     description:
       "Каждая версия CLI публикуется на GitHub Releases — выберите нужную сборку и скачайте бинарник для своей платформы.",
@@ -19,14 +19,14 @@ export const releasesPageContent = {
     badge: "GitHub Releases",
     title: "Официальный репозиторий",
     description:
-      "Исходный код, changelog и все сборки доступны в репозитории fraes-cli.",
+      "Исходный код, changelog и все сборки доступны в репозитории litora-cli.",
     buttonText: "Открыть репозиторий",
   },
 
   githubRepo: {
-    name: "fraes-cli",
+    name: "litora-cli",
     owner: "Nickitas",
-    baseUrl: "https://github.com/Nickitas/fraes-cli",
+    baseUrl: "https://github.com/Nickitas/litora-cli",
   },
 
   unavailableLabel: "Скоро на GitHub",
@@ -35,17 +35,17 @@ export const releasesPageContent = {
   releases: [
     {
       version: "v1.2",
-      releaseDate: undefined,
+      releaseDate: "20 июня 2025",
       description:
-        "Добавлена реальная физика: волновая эрозия, транспорт наносов, литология, временная динамика",
-      releaseUrl: null,
+        "Комплексная физическая модель эрозии: волновая эрозия, транспорт наносов, литология, временная динамика, климатические сценарии, CSV экспорт",
+      releaseUrl: "https://github.com/Nickitas/litora-cli/releases/tag/v1.2",
       isLatest: true,
     },
     {
       version: "v1.0.0",
       releaseDate: "15 января 2025",
       description: "Фрактальная геометрия и парадокс береговой линии",
-      releaseUrl: "https://github.com/Nickitas/fraes-cli/releases/tag/v1.0.0",
+      releaseUrl: "https://github.com/Nickitas/litora-cli/releases/tag/v1.0.0",
     },
   ] satisfies AppRelease[],
 } as const;

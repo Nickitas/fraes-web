@@ -8,17 +8,17 @@ export const FOOTER_LINKS = {
   resources: [
     {
       label: "Документация",
-      href: "https://github.com/Nickitas/fraes-cli",
+      href: "https://github.com/Nickitas/litora-cli",
     },
     {
       label: "GitHub Issues",
-      href: "https://github.com/Nickitas/fraes-cli",
+      href: "https://github.com/Nickitas/litora-cli",
     },
   ],
   legal: [
     {
       label: "Лицензия MIT",
-      href: "https://github.com/Nickitas/fraes-cli/blob/main/LICENSE",
+      href: "https://github.com/Nickitas/litora-cli/blob/main/LICENSE",
     },
   ],
 } as const;

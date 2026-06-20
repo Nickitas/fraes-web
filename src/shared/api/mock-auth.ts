@@ -48,7 +48,7 @@ const getUserPassword = (email: string): string | undefined => {
   return fallbackPasswords[email];
 };
 
-const STORAGE_KEY = "fraes_auth";
+const STORAGE_KEY = "litora_auth";
 
 export const mockAuthApi = {
   getAuthState(): AuthState {

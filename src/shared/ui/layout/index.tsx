@@ -16,19 +16,21 @@ export function Layout({ children }: LayoutProps) {
   const isAuthPage = location.pathname === "/login";
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background">
-      <Navbar />
-      <main className="container mx-auto px-4 pt-15 pb-12">
-        <div className="mx-auto">{children}</div>
-      </main>
-      {!isAuthPage && <Footer />}
+    <div className="relative min-h-screen overflow-x-hidden bg-background">
       <Particles
-        className="absolute inset-0 z-0"
+        className="fixed inset-0 z-0"
         quantity={100}
         ease={80}
         color={color}
         refresh
       />
+      <div className="relative z-10">
+        <Navbar />
+        <main className="container mx-auto px-4 pt-15 pb-12">
+          <div className="mx-auto">{children}</div>
+        </main>
+        {!isAuthPage && <Footer />}
+      </div>
     </div>
   );
 }

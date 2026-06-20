@@ -5,8 +5,8 @@ export interface CliCommand {
 
 export const installationPageContent = {
   hero: {
-    title: "Установка и запуск",
-    subtitle: "Litora-CLI работает на всех основных платформах",
+    title: "Установка Litora-CLI v1.2",
+    subtitle: "Простая установка на все основные платформы",
   },
 
   fromSource: {
@@ -87,8 +87,8 @@ export const installationPageContent = {
         --steps 10 \
         --lithology data/black-sea-lithology.json \
         --enable-lithology \
-        --output ./output/erosion-lithology",
-      description: "Моделирование с учётом сопротивления пород",
+        --output-csv erosion_lithology.csv",
+      description: "Моделирование с учётом сопротивления пород с CSV экспортом",
     },
     {
       command:
@@ -100,9 +100,10 @@ export const installationPageContent = {
           --bathymetry data/black-sea-bathymetry.json \
           --lithology data/black-sea-lithology.json \
           --enable-lithology \
-          --output ./output/erosion-full",
+          --output-csv full_model.csv \
+          --csv-format long",
       description:
-        "Моделирование полной физической модели (батиметрия + литология)",
+        "Моделирование полной физической модели (батиметрия + литология + CSV)",
     },
     {
       command:
@@ -118,7 +119,8 @@ export const installationPageContent = {
         --target-years 20 \
         --years-per-step 2 \
         --storm-probability 0.3 \
-        --storm-intensity 2.5",
+        --storm-intensity 2.5 \
+        --output-csv storm_analysis.csv",
       description:
         "Временная динамика штормового климата (30% вероятность штормов, интенсивность 2.5x)",
     },
@@ -128,9 +130,39 @@ export const installationPageContent = {
         --target-years 15 \
         --years-per-step 3 \
         --enable-seasonality \
-        --seasonal-phase 3.14",
+        --seasonal-phase 3.14 \
+        --csv-format wide",
       description:
-        "Временная динамика с сезонными колебаниями (пик эрозии зимой)",
+        "Временная динамика с сезонными колебаниями (пик эрозии зимой, wide формат)",
+    },
+    {
+      command:
+        "./lito model erosion \
+        --target-years 50 \
+        --years-per-step 5 \
+        --storm-probability 0.2 \
+        --storm-intensity 2.5 \
+        --sea-level-rise 0.01 \
+        --enable-seasonality \
+        --bathymetry data/black-sea-bathymetry.json \
+        --lithology data/black-sea-lithology.json \
+        --enable-lithology \
+        --output-csv climate_rcp85.csv",
+      description:
+        "Климатический сценарий RCP8.5 с учётом всех факторов",
+    },
+    {
+      command:
+        "./lito all \
+        --iterations 4 \
+        --steps 10 \
+        --target-years 20 \
+        --years-per-step 2 \
+        --storm-probability 0.15 \
+        --enable-seasonality \
+        --output ./output",
+      description:
+        "Полный научный сценарий: валидация + фрактальный анализ + эрозия с временными параметрами",
     },
   ] as CliCommand[],
 

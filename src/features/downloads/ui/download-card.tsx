@@ -163,6 +163,11 @@ export function DownloadCard({ file, onDownload }: DownloadCardProps) {
         <p>Размер: {file.size}</p>
         <p>Сборка: {file.goVersion}</p>
         <p className="text-xs">{file.requirements}</p>
+        {file.os === "macos" && (
+          <p className="text-xs text-amber-600 dark:text-amber-400">
+            💡 Выберите версию в соответствии с вашим процессором
+          </p>
+        )}
       </div>
 
       {/* Changelog - can expand */}

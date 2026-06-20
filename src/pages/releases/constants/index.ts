@@ -35,10 +35,10 @@ export const releasesPageContent = {
   releases: [
     {
       version: "v1.2",
-      releaseDate: undefined,
+      releaseDate: "20 июня 2025",
       description:
-        "Добавлена реальная физика: волновая эрозия, транспорт наносов, литология, временная динамика",
-      releaseUrl: null,
+        "Комплексная физическая модель эрозии: волновая эрозия, транспорт наносов, литология, временная динамика, климатические сценарии, CSV экспорт",
+      releaseUrl: "https://github.com/Nickitas/litora-cli/releases/tag/v1.2",
       isLatest: true,
     },
     {

@@ -49,7 +49,9 @@ export function useWeather(lat: number, lon: number) {
 
         setWeather(weatherData);
       } catch (err) {
-        setError({ message: err instanceof Error ? err.message : "Unknown error" });
+        setError({
+          message: err instanceof Error ? err.message : "Unknown error",
+        });
       } finally {
         setLoading(false);
       }

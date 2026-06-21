@@ -29,8 +29,8 @@ export const homePageContent = {
       "CLI-утилита для геоморфологического моделирования береговых систем, анализа фрактальных свойств береговой линии и физически обоснованного моделирования эрозионных процессов",
     badges: [
       { label: "Go 1.23+" },
-      { label: "Python" },
-      { label: "coastline" },
+      { label: "Python 3.8+" },
+      { label: "numerical simulation" },
     ] as TechBadge[],
     ctaButtons: [
       { label: "Скачать", route: "/downloads" as const },

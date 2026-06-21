@@ -4,7 +4,11 @@ import { useEffect, useRef, useMemo } from "react";
 import createGlobe, { type COBEOptions } from "cobe";
 import { useMotionValue, useSpring } from "motion/react";
 import { useTheme } from "next-themes";
-import { useWeather, getWeatherEmoji, getUVDescription } from "@/shared/hooks/useWeather";
+import {
+  useWeather,
+  getWeatherEmoji,
+  getUVDescription,
+} from "@/shared/hooks/useWeather";
 import { cn } from "../../lib/utils";
 
 const MOVEMENT_DAMPING = 1400;
@@ -222,7 +226,7 @@ export function Globe({
       >
         <div
           className={cn(
-            "relative overflow-hidden rounded-xl px-3 py-2 shadow-2xl ring-1 backdrop-blur-sm w-48",
+            "relative w-48 overflow-hidden rounded-xl px-3 py-2 shadow-2xl ring-1 backdrop-blur-sm",
             isDark
               ? "bg-gradient-to-br from-blue-500/95 to-blue-600/95 ring-white/20"
               : "bg-white/95 ring-blue-500/30"
@@ -238,7 +242,7 @@ export function Globe({
           />
           {loading ? (
             <div className="relative flex items-center justify-center gap-1.5">
-              <div className="text-xl animate-pulse">🔄</div>
+              <div className="animate-pulse text-xl">🔄</div>
               <div
                 className={cn(
                   "text-xs font-medium",
@@ -268,7 +272,7 @@ export function Globe({
                     {getWeatherEmoji(weather.weatherCode)}
                   </div>
                 </div>
-                <div className="flex flex-col flex-1">
+                <div className="flex flex-1 flex-col">
                   <div
                     className={cn(
                       "text-xl font-bold drop-shadow-md",
@@ -296,7 +300,7 @@ export function Globe({
                 <div className="flex flex-col">
                   <div
                     className={cn(
-                      "text-[8px] uppercase leading-tight",
+                      "text-[8px] leading-tight uppercase",
                       isDark ? "text-white/60" : "text-gray-500"
                     )}
                   >
@@ -304,7 +308,7 @@ export function Globe({
                   </div>
                   <div
                     className={cn(
-                      "text-xs font-semibold leading-tight",
+                      "text-xs leading-tight font-semibold",
                       isDark ? "text-white" : "text-gray-900"
                     )}
                   >
@@ -314,7 +318,7 @@ export function Globe({
                 <div className="flex flex-col">
                   <div
                     className={cn(
-                      "text-[8px] uppercase leading-tight",
+                      "text-[8px] leading-tight uppercase",
                       isDark ? "text-white/60" : "text-gray-500"
                     )}
                   >
@@ -322,7 +326,7 @@ export function Globe({
                   </div>
                   <div
                     className={cn(
-                      "text-xs font-semibold leading-tight",
+                      "text-xs leading-tight font-semibold",
                       isDark ? "text-white" : "text-gray-900"
                     )}
                   >
@@ -332,7 +336,7 @@ export function Globe({
                 <div className="flex flex-col">
                   <div
                     className={cn(
-                      "text-[8px] uppercase leading-tight",
+                      "text-[8px] leading-tight uppercase",
                       isDark ? "text-white/60" : "text-gray-500"
                     )}
                   >
@@ -340,7 +344,7 @@ export function Globe({
                   </div>
                   <div
                     className={cn(
-                      "text-xs font-semibold leading-tight",
+                      "text-xs leading-tight font-semibold",
                       isDark ? "text-white" : "text-gray-900"
                     )}
                   >
@@ -350,7 +354,7 @@ export function Globe({
                 <div className="flex flex-col">
                   <div
                     className={cn(
-                      "text-[8px] uppercase leading-tight",
+                      "text-[8px] leading-tight uppercase",
                       isDark ? "text-white/60" : "text-gray-500"
                     )}
                   >
@@ -358,17 +362,17 @@ export function Globe({
                   </div>
                   <div
                     className={cn(
-                      "text-xs font-semibold leading-tight",
+                      "text-xs leading-tight font-semibold",
                       isDark ? "text-white" : "text-gray-900"
                     )}
                   >
                     {weather.pressure} гПа
                   </div>
                 </div>
-                <div className="flex flex-col col-span-2">
+                <div className="col-span-2 flex flex-col">
                   <div
                     className={cn(
-                      "text-[8px] uppercase leading-tight",
+                      "text-[8px] leading-tight uppercase",
                       isDark ? "text-white/60" : "text-gray-500"
                     )}
                   >
@@ -376,7 +380,7 @@ export function Globe({
                   </div>
                   <div
                     className={cn(
-                      "text-xs font-semibold leading-tight",
+                      "text-xs leading-tight font-semibold",
                       isDark ? "text-white" : "text-gray-900"
                     )}
                   >

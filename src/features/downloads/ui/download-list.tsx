@@ -15,7 +15,7 @@ export function DownloadList() {
   };
 
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+    <div className="grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
       {mockDownloadsApi.map((file) => (
         <DownloadCard key={file.id} file={file} onDownload={handleDownload} />
       ))}

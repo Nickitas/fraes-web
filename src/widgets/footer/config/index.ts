@@ -8,7 +8,7 @@ export const FOOTER_LINKS = {
   resources: [
     {
       label: "Документация",
-      href: "https://github.com/Nickitas/litora-cli",
+      href: "/docs",
     },
     {
       label: "GitHub Issues",

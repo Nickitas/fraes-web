@@ -4,7 +4,7 @@ import { FOOTER_LINKS } from "../../config";
 export const ProjectLinks = () => {
   return (
     <div className="mt-4">
-      <h3 className="text-sm font-semibold mb-2">Проект</h3>
+      <h3 className="mb-2 text-sm font-semibold">Проект</h3>
       <ul className="space-y-2">
         {FOOTER_LINKS.project.map((link) => (
           <li key={link.label}>

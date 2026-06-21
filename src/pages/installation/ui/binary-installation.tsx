@@ -64,13 +64,12 @@ const osInstructions = {
     steps: [
       {
         title: "1. Распакуйте архив",
-        code: 'Expand-Archive lito-v1.2-windows-amd64.zip',
+        code: "Expand-Archive lito-v1.2-windows-amd64.zip",
         note: "Или дважды кликните на архив для распаковки",
       },
       {
         title: "2. Переместите в PATH (опционально)",
-        code:
-          "# Переместите файл в директорию из PATH\n# или добавьте текущую директорию в PATH",
+        code: "# Переместите файл в директорию из PATH\n# или добавьте текущую директорию в PATH",
         note: "Для удобства использования",
       },
       {
@@ -107,10 +106,7 @@ const InstallationStep = ({
           {isCompleted ? "✓ Выполнено успешно" : "> Ожидание выполнения..."}
         </AnimatedSpan>
         {step.note && (
-          <AnimatedSpan
-            delay={2500}
-            className="text-muted-foreground text-xs"
-          >
+          <AnimatedSpan delay={2500} className="text-xs text-muted-foreground">
             ℹ {step.note}
           </AnimatedSpan>
         )}
@@ -132,7 +128,7 @@ export const BinaryInstallation = () => {
   return (
     <section className="space-y-6 rounded-lg border p-4 sm:p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold sm:text-2xl mb-2">
+        <h2 className="mb-2 text-xl font-semibold sm:text-2xl">
           Установка бинарных файлов
         </h2>
         <p className="text-muted-foreground">
@@ -142,15 +138,15 @@ export const BinaryInstallation = () => {
 
       {/* Tabs */}
       <div className="border-b border-border">
-        <div className="flex flex-wrap gap-2 -mb-px">
+        <div className="-mb-px flex flex-wrap gap-2">
           {osTypes.map((os) => (
             <button
               key={os}
               onClick={() => setActiveOs(os)}
-              className={`px-4 py-2 font-medium transition-colors relative ${
+              className={`relative px-4 py-2 font-medium transition-colors ${
                 activeOs === os
-                  ? "text-foreground border-b-2 border-primary"
-                  : "text-muted-foreground hover:text-foreground hover:border-b-2 hover:border-border"
+                  ? "border-b-2 border-primary text-foreground"
+                  : "text-muted-foreground hover:border-b-2 hover:border-border hover:text-foreground"
               }`}
             >
               <div className="flex items-center gap-2">
@@ -176,8 +172,8 @@ export const BinaryInstallation = () => {
           return (
             <div className="space-y-6">
               {"warning" in instructions && instructions.warning && (
-                <div className="flex items-start gap-3 p-4 rounded-lg bg-amber-500/10 border border-amber-500/20">
-                  <AlertCircle className="size-4 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+                <div className="flex items-start gap-3 rounded-lg border border-amber-500/20 bg-amber-500/10 p-4">
+                  <AlertCircle className="mt-0.5 size-4 shrink-0 text-amber-600 dark:text-amber-400" />
                   <p className="text-sm text-amber-700 dark:text-amber-300">
                     {instructions.warning}
                   </p>
@@ -190,22 +186,21 @@ export const BinaryInstallation = () => {
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-border/50">
-                <h4 className="mb-3 font-medium flex items-center gap-2">
+              <div className="border-t border-border/50 pt-4">
+                <h4 className="mb-3 flex items-center gap-2 font-medium">
                   <Check className="size-4 text-green-500" />
                   Проверка установки
                 </h4>
                 <Terminal>
-                  <TypingAnimation>{instructions.verification.code}</TypingAnimation>
-                  <AnimatedSpan
-                    delay={1500}
-                    className="text-green-500"
-                  >
+                  <TypingAnimation>
+                    {instructions.verification.code}
+                  </TypingAnimation>
+                  <AnimatedSpan delay={1500} className="text-green-500">
                     ✓ Команда доступна
                   </AnimatedSpan>
                   <AnimatedSpan
                     delay={2500}
-                    className="text-muted-foreground text-xs"
+                    className="text-xs text-muted-foreground"
                   >
                     ℹ {instructions.verification.note}
                   </AnimatedSpan>
@@ -217,14 +212,16 @@ export const BinaryInstallation = () => {
       </motion.div>
 
       {/* First Run Section */}
-      <div className="pt-4 border-t border-border/50">
-        <h3 className="font-semibold mb-3 flex items-center gap-2">
+      <div className="border-t border-border/50 pt-4">
+        <h3 className="mb-3 flex items-center gap-2 font-semibold">
           <Check className="size-4 text-green-500" />
           Первый запуск
         </h3>
         <div className="space-y-3">
           <div>
-            <p className="text-sm text-muted-foreground mb-2">Проверка источника данных:</p>
+            <p className="mb-2 text-sm text-muted-foreground">
+              Проверка источника данных:
+            </p>
             <Terminal>
               <TypingAnimation>lito source</TypingAnimation>
               <AnimatedSpan delay={1500} className="text-green-500">
@@ -233,7 +230,9 @@ export const BinaryInstallation = () => {
             </Terminal>
           </div>
           <div>
-            <p className="text-sm text-muted-foreground mb-2">Полный научный сценарий:</p>
+            <p className="mb-2 text-sm text-muted-foreground">
+              Полный научный сценарий:
+            </p>
             <Terminal>
               <TypingAnimation>
                 lito all --iterations 3 --steps 5
@@ -247,17 +246,17 @@ export const BinaryInstallation = () => {
       </div>
 
       {/* Additional Tools Section */}
-      <div className="pt-4 border-t border-border/50">
-        <h3 className="font-semibold mb-3 flex items-center gap-2">
+      <div className="border-t border-border/50 pt-4">
+        <h3 className="mb-3 flex items-center gap-2 font-semibold">
           <Info className="size-4 text-blue-500" />
           Дополнительные инструменты
         </h3>
-        <div className="flex items-start gap-3 p-4 rounded-lg bg-purple-500/10 border border-purple-500/20">
-          <Info className="size-4 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
+        <div className="flex items-start gap-3 rounded-lg border border-purple-500/20 bg-purple-500/10 p-4">
+          <Info className="mt-0.5 size-4 shrink-0 text-purple-600 dark:text-purple-400" />
           <div className="text-sm text-purple-700 dark:text-purple-300">
             <p className="mb-2">
-              Для использования Python скриптов анализа данных требуется
-              Python 3.8+:
+              Для использования Python скриптов анализа данных требуется Python
+              3.8+:
             </p>
             <Terminal>
               <TypingAnimation>

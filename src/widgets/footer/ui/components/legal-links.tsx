@@ -3,7 +3,7 @@ import { FOOTER_LINKS } from "../../config";
 export const LegalLinks = () => {
   return (
     <div className="mt-4">
-      <h3 className="text-sm font-semibold mb-2">Правовая информация</h3>
+      <h3 className="mb-2 text-sm font-semibold">Правовая информация</h3>
       <ul className="space-y-2">
         {FOOTER_LINKS.legal.map((link) => (
           <li key={link.label}>

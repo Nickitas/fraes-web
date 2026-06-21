@@ -4,7 +4,7 @@ export const BottomBar = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="flex flex-col items-center justify-between gap-4 border-t border-border/40 px-4 pt-8 sm:flex-row  sm:px-6 lg:px-8">
+    <div className="flex flex-col items-center justify-between gap-4 border-t border-border/40 px-4 pt-8 sm:flex-row sm:px-6 lg:px-8">
       <p className="text-sm text-muted-foreground">
         © {currentYear} {SITE_CONFIG.fullName}. Все права защищены.
       </p>

@@ -6,7 +6,7 @@ export const BrandColumn = () => {
     <div className="space-y-4">
       <Link to="/" className="inline-flex items-center gap-2">
         <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-          <span className="font-bold">Fr</span>
+          <span className="font-bold">Li</span>
         </div>
         <span className="text-lg font-semibold">{SITE_CONFIG.name}</span>
       </Link>

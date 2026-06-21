@@ -13,11 +13,7 @@ export const SourceCode = () => {
         {sourceCode.description}
       </p>
       <div className="mt-4">
-        <a
-          href={sourceCode.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={sourceCode.url} target="_blank" rel="noopener noreferrer">
           <RippleButton>{sourceCode.buttonText}</RippleButton>
         </a>
       </div>

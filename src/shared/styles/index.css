@@ -151,6 +151,44 @@
   .dark .brand-gradient {
     background-image: linear-gradient(to right, #60a5fa, #a78bfa, #22d3ee);
   }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme(colors.muted.foreground / 0.2) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme(colors.muted.foreground / 0.2);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: theme(colors.muted.foreground / 0.4);
+  }
+
+  .scrollbar-thumb-muted-foreground\/20::-webkit-scrollbar-thumb {
+    background-color: theme(colors.muted.foreground / 0.2);
+  }
+
+  .scrollbar-thumb-muted-foreground\/20::-webkit-scrollbar-thumb:hover {
+    background-color: theme(colors.muted.foreground / 0.4);
+  }
+
+  .scrollbar-thumb-muted-foreground\/40::-webkit-scrollbar-thumb {
+    background-color: theme(colors.muted.foreground / 0.4);
+  }
+
+  .scrollbar-thumb-muted-foreground\/40::-webkit-scrollbar-thumb:hover {
+    background-color: theme(colors.muted.foreground / 0.6);
+  }
 }
 
 ::view-transition-old(root),

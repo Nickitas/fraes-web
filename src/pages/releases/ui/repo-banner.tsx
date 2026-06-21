@@ -31,7 +31,9 @@ export const RepoBanner = () => {
           </div>
 
           <div>
-            <h2 className="text-xl font-bold sm:text-2xl">{repoSection.title}</h2>
+            <h2 className="text-xl font-bold sm:text-2xl">
+              {repoSection.title}
+            </h2>
             <p className="mt-1 max-w-xl text-sm text-muted-foreground sm:text-base">
               {repoSection.description}
             </p>

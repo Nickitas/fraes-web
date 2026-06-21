@@ -29,7 +29,11 @@ export const VersionList = () => {
           />
 
           {releases.map((release, index) => (
-            <VersionCard key={release.version} release={release} index={index} />
+            <VersionCard
+              key={release.version}
+              release={release}
+              index={index}
+            />
           ))}
         </ol>
       </div>

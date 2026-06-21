@@ -64,10 +64,7 @@ export function MagicCard(props: MagicCardProps) {
     children,
     className,
     gradientSize = 200,
-    gradientColor = "#262626",
     gradientOpacity = 0.8,
-    gradientFrom = "#9E7AFF",
-    gradientTo = "#FE8BBB",
     mode = "gradient",
   } = props;
 
@@ -87,6 +84,12 @@ export function MagicCard(props: MagicCardProps) {
     const currentTheme = theme === "system" ? systemTheme : theme;
     return currentTheme === "dark";
   }, [theme, systemTheme, mounted]);
+
+  // Адаптивные цвета для градиента в зависимости от темы
+  const adaptiveGradientColor = isDarkTheme ? "#262626" : "#e9d5ff";
+  const adaptiveGradientFrom = isDarkTheme ? "#9E7AFF" : "#e9d5ff";
+  const adaptiveGradientTo = isDarkTheme ? "#FE8BBB" : "#fbcfe8";
+  const adaptiveGradientOpacity = isDarkTheme ? gradientOpacity : 0.4;
 
   const mouseX = useMotionValue(-gradientSize);
   const mouseY = useMotionValue(-gradientSize);
@@ -174,8 +177,8 @@ export function MagicCard(props: MagicCardProps) {
         background: useMotionTemplate`
           linear-gradient(var(--color-background) 0 0) padding-box,
           radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
-            ${gradientFrom},
-            ${gradientTo},
+            ${adaptiveGradientFrom},
+            ${adaptiveGradientTo},
             var(--color-border) 100%
           ) border-box
         `,
@@ -190,11 +193,11 @@ export function MagicCard(props: MagicCardProps) {
           style={{
             background: useMotionTemplate`
               radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
-                ${gradientColor},
+                ${adaptiveGradientColor},
                 transparent 100%
               )
             `,
-            opacity: gradientOpacity,
+            opacity: adaptiveGradientOpacity,
           }}
         />
       )}
@@ -216,7 +219,7 @@ export function MagicCard(props: MagicCardProps) {
             opacity: orbVisible,
             background: `linear-gradient(${glowAngle}deg, ${glowFrom}, ${glowTo})`,
 
-            mixBlendMode: isDarkTheme ? "screen" : "multiply",
+            mixBlendMode: "screen",
             willChange: "transform, opacity",
           }}
         />

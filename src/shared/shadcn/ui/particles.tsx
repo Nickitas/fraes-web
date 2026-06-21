@@ -101,6 +101,7 @@ export const Particles: React.FC<ParticlesProps> = ({
   const initCanvasRef = useRef<() => void>(() => {});
   const onMouseMoveRef = useRef<() => void>(() => {});
   const animateRef = useRef<() => void>(() => {});
+  const rgbRef = useRef<number[]>(hexToRgb(color));
 
   useEffect(() => {
     if (canvasRef.current) {
@@ -129,6 +130,18 @@ export const Particles: React.FC<ParticlesProps> = ({
       }
       window.removeEventListener("resize", handleResize);
     };
+  }, []);
+
+  // Update color when theme changes
+  useEffect(() => {
+    rgbRef.current = hexToRgb(color);
+    // Redraw existing particles with new color
+    if (context.current && circles.current.length > 0) {
+      clearContext();
+      circles.current.forEach((circle) => {
+        drawCircle(circle, true);
+      });
+    }
   }, [color]);
 
   useEffect(() => {
@@ -203,11 +216,10 @@ export const Particles: React.FC<ParticlesProps> = ({
     };
   };
 
-  const rgb = hexToRgb(color);
-
   const drawCircle = (circle: Circle, update = false) => {
     if (context.current) {
       const { x, y, translateX, translateY, size, alpha } = circle;
+      const rgb = rgbRef.current;
       context.current.translate(translateX, translateY);
       context.current.beginPath();
       context.current.arc(x, y, size, 0, 2 * Math.PI);

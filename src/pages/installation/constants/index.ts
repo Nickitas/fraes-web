@@ -148,8 +148,7 @@ export const installationPageContent = {
         --lithology data/black-sea-lithology.json \
         --enable-lithology \
         --output-csv climate_rcp85.csv",
-      description:
-        "Климатический сценарий RCP8.5 с учётом всех факторов",
+      description: "Климатический сценарий RCP8.5 с учётом всех факторов",
     },
     {
       command:

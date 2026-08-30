@@ -2,6 +2,7 @@ import { AboutPage } from "@/pages/about/about.page";
 import { DocsPage } from "@/pages/docs/docs.page";
 import { ModuleDetailPage } from "@/pages/docs/module-detail.page";
 import { CapabilityDetailPage } from "@/pages/docs/capability-detail.page";
+import { ReferencePage } from "@/pages/docs/reference.page";
 import { DownloadsPage } from "@/pages/downloads/downloads.page";
 import { HomePage } from "@/pages/home/home.page";
 import { InstallationPage } from "@/pages/installation/installation.page";
@@ -40,6 +41,10 @@ export const routes = [
   {
     path: "/docs/capabilities/:capabilityId",
     Component: CapabilityDetailPage,
+  },
+  {
+    path: "/docs/reference/:slug",
+    Component: ReferencePage,
   },
   {
     path: "/login",

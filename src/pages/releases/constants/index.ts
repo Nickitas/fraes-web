@@ -34,12 +34,19 @@ export const releasesPageContent = {
 
   releases: [
     {
+      version: "v2.0",
+      releaseDate: "30 августа 2026",
+      description:
+        "Цельный научный контур для Чёрного моря: береговая линия, батиметрия, адаптивные четырёхугольные сетки Gmsh, 3D-рельеф, профили и воспроизводимые метрики",
+      releaseUrl: "https://github.com/Nickitas/litora-cli/releases/tag/v2.0",
+      isLatest: true,
+    },
+    {
       version: "v1.2",
       releaseDate: "20 июня 2025",
       description:
         "Комплексная физическая модель эрозии: волновая эрозия, транспорт наносов, литология, временная динамика, климатические сценарии, CSV экспорт",
       releaseUrl: "https://github.com/Nickitas/litora-cli/releases/tag/v1.2",
-      isLatest: true,
     },
     {
       version: "v1.0.0",

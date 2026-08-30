@@ -14,7 +14,7 @@ const osInstructions = {
     steps: [
       {
         title: "1. Распакуйте архив",
-        code: "unzip lito-v1.2-linux-amd64.zip",
+        code: "unzip lito-v2.0-linux-amd64.zip",
         note: "Или используйте любой другой архиватор",
       },
       {
@@ -38,7 +38,7 @@ const osInstructions = {
     steps: [
       {
         title: "1. Распакуйте архив",
-        code: "unzip lito-v1.2-darwin-*.zip",
+        code: "unzip lito-v2.0-darwin-*.zip",
         note: "Замените * на amd64 или arm64 в зависимости от процессора",
       },
       {
@@ -64,7 +64,7 @@ const osInstructions = {
     steps: [
       {
         title: "1. Распакуйте архив",
-        code: "Expand-Archive lito-v1.2-windows-amd64.zip",
+        code: "Expand-Archive lito-v2.0-windows-amd64.zip",
         note: "Или дважды кликните на архив для распаковки",
       },
       {

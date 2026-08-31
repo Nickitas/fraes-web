@@ -1,13 +1,15 @@
-const VERSION = import.meta.env.VITE_CLI_VERSION_NUMBER || "v1.2";
+import releaseManifest from "./releases.json";
+
+const VERSION = import.meta.env.VITE_CLI_VERSION_NUMBER || releaseManifest.version;
 
 export const SITE_CONFIG = {
   name: "Litora",
   fullName: "litora-CLI",
   description:
     "CLI-утилита для геоморфологического моделирования береговых систем",
-  repository: "https://github.com/Nickitas/litora-cli",
+  repository: releaseManifest.repository,
   version: VERSION,
-  releaseDate: "2025-06-20",
+  releaseDate: "2026-08-30",
 } as const;
 
 export const SOCIAL_LINKS = [

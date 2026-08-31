@@ -1,4 +1,4 @@
-/* @eslint disabe  */
+/* eslint-disable react-hooks/immutability, react-hooks/refs, react-hooks/exhaustive-deps */
 
 import React, {
   useEffect,

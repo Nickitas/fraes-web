@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test:verify
+      - run: pnpm build
+
+  binaries:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify release binaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          declare -A expected=(
+            [public/downloads/linux/lito-linux-amd64]=ELF
+            [public/downloads/windows/lito-windows-amd64.exe]=PE32
+            [public/downloads/macos/lito-darwin-amd64]=Mach-O
+            [public/downloads/macos/lito-darwin-arm64]=Mach-O
+          )
+          for file in "${!expected[@]}"; do
+            test -s "$file"
+            file "$file" | grep -q "${expected[$file]}"
+          done

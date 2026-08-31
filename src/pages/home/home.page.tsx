@@ -3,6 +3,8 @@ import { FeaturesSection } from "./ui/features-section";
 import { ScientificSection } from "./ui/scientific-section";
 import { CommandsSection } from "./ui/commands-section";
 import { Meteors } from "@/shared/shadcn/ui/meteors";
+import { WorkflowSection } from "./ui/workflow-section";
+import { ObservatorySection } from "./ui/observatory-section";
 
 export function HomePage() {
   return (
@@ -14,6 +16,8 @@ export function HomePage() {
       <FeaturesSection />
       <ScientificSection />
       <CommandsSection />
+      <WorkflowSection />
+      <ObservatorySection />
     </div>
   );
 }

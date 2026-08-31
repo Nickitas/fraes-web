@@ -5,7 +5,7 @@ export interface CliCommand {
 
 export const installationPageContent = {
   hero: {
-    title: "Установка Litora-CLI v1.2",
+    title: "Установка Litora-CLI v2.0",
     subtitle: "Простая установка на все основные платформы",
   },
 

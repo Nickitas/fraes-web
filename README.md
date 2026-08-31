@@ -1,86 +1,85 @@
 # Litora Website
 
+Официальный сайт **Litora CLI** — инструмента для геоморфологического моделирования прибрежных систем, анализа береговой линии и исследования рельефа Чёрного моря.
 
-Официальный сайт проекта [Litora](https://github.com/Nickitas/litora-cli) — CLI-утилита для геоморфологического моделирования береговых систем, анализа фрактальных свойств береговой линии и физически обоснованного моделирования эрозионных процессов.
+Сайт содержит историю развития проекта, научную документацию, инструкции по установке и готовые исполняемые файлы для основных платформ.
 
-## Установка
+## Актуальный релиз
+
+Текущая версия: **v2.0**.
+
+В релизе собраны инструменты для работы с геометрией побережья и рельефом Чёрного моря:
+
+- батиметрическая модель и 3D-рельеф;
+- адаптивные четырёхугольные сетки Gmsh;
+- экспорт MSH, VTU, CSV и SVG;
+- профили и контроль качества интерполяции;
+- воспроизводимые метрики и паспорта входных данных;
+- обновлённый русскоязычный CLI.
+
+Исходный проект: [github.com/Nickitas/litora-cli](https://github.com/Nickitas/litora-cli).
+
+## Технологии
+
+- React 19 и TypeScript;
+- Vite и React Router;
+- Tailwind CSS;
+- Motion для анимаций;
+- React Markdown для отображения документации;
+- pnpm.
+
+## Структура проекта
+
+```text
+src/
+├── app/                 маршруты и корневые провайдеры
+├── pages/               страницы сайта
+│   ├── home/            лендинг
+│   ├── docs/            документация и Markdown-материалы
+│   ├── downloads/       загрузки
+│   ├── installation/    установка CLI
+│   └── releases/        история релизов
+├── features/            функциональные сценарии
+├── shared/              общие UI-компоненты и конфигурация
+└── widgets/             навигация и footer
+
+public/downloads/        исполняемые файлы CLI
+```
+
+Документы CLI хранятся локально в [`src/pages/docs/docs`](src/pages/docs/docs) и импортируются в приложение во время сборки.
+
+## Запуск
+
+Требуется Node.js и pnpm.
 
 ```bash
-# Установка зависимостей
 pnpm install
-
-# Или с помощью npm
-npm install
-
-# Или с помощью yarn
-yarn install
-```
-
-## Разработка
-
-```bash
-# Запуск dev-сервера
 pnpm dev
-
-# Сервер будет доступен на http://localhost:5173
 ```
 
-## Сборка
+Сайт будет доступен по адресу `http://localhost:5173`.
+
+## Проверка и сборка
 
 ```bash
-# Production сборка
-pnpm build
-
-# Предпросмотр сборки
-pnpm preview
+pnpm typecheck  # проверка TypeScript
+pnpm build      # production-сборка
+pnpm preview    # предпросмотр production-сборки
+pnpm lint       # ESLint
+pnpm format     # форматирование TypeScript и TSX
 ```
 
-## Линтинг и форматирование
+## Конфигурация
 
-```bash
-# Проверка TypeScript
-pnpm typecheck
-
-# ESLint
-pnpm lint
-
-# Форматирование кода
-pnpm format
-```
-
-Компоненты автоматически устанавливаются в `src/shared/shadcn/components/ui/`.
-
-## Переменные окружения
-
-Создайте файл `.env.local` для локальной конфигурации:
+Для локальной настройки используйте `.env.local`:
 
 ```env
+VITE_CLI_VERSION_NUMBER=v2.0
 VITE_API_URL=/api
 ```
 
-## Авторизация
-
-Демо-credentials для тестирования защищённых страниц:
-
-- **Email:** `user@example.com`
-- **Password:** `password`
-
-Авторизация реализована с моковым API и хранится в `localStorage`.
-
-## Защита скачивания
-
-Страница `/downloads` защищена компонентом `DownloadGuard`:
-- Неавторизованные пользователи перенаправляются на `/login`
-- После успешного входа — редирект обратно на `/downloads`
+Версия из `VITE_CLI_VERSION_NUMBER` используется в карточках загрузки и на страницах релизов.
 
 ## Лицензия
 
-MIT
-
-## Ссылки
-
-- [Repository](https://github.com/Nickitas/litora-cli)
-- [FSD Methodology](https://feature-sliced.design/)
-- [React Documentation](https://react.dev/)
-- [Vite Documentation](https://vite.dev/)
-- [shadcn/ui](https://ui.shadcn.com/)
+MIT.

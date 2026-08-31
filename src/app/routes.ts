@@ -1,13 +1,16 @@
-import { AboutPage } from "@/pages/about/about.page";
-import { DocsPage } from "@/pages/docs/docs.page";
-import { ModuleDetailPage } from "@/pages/docs/module-detail.page";
-import { CapabilityDetailPage } from "@/pages/docs/capability-detail.page";
-import { ReferencePage } from "@/pages/docs/reference.page";
-import { DownloadsPage } from "@/pages/downloads/downloads.page";
-import { HomePage } from "@/pages/home/home.page";
-import { InstallationPage } from "@/pages/installation/installation.page";
-import { LoginPage } from "@/pages/login/login.page";
-import { ReleasesPage } from "@/pages/releases/releases.page";
+import { lazy } from "react";
+const AboutPage = lazy(() => import("@/pages/about/about.page").then((m) => ({ default: m.AboutPage })));
+const DocsPage = lazy(() => import("@/pages/docs/docs.page").then((m) => ({ default: m.DocsPage })));
+const ModuleDetailPage = lazy(() => import("@/pages/docs/module-detail.page").then((m) => ({ default: m.ModuleDetailPage })));
+const CapabilityDetailPage = lazy(() => import("@/pages/docs/capability-detail.page").then((m) => ({ default: m.CapabilityDetailPage })));
+const ReferencePage = lazy(() => import("@/pages/docs/reference.page").then((m) => ({ default: m.ReferencePage })));
+const DownloadsPage = lazy(() => import("@/pages/downloads/downloads.page").then((m) => ({ default: m.DownloadsPage })));
+const HomePage = lazy(() => import("@/pages/home/home.page").then((m) => ({ default: m.HomePage })));
+const InstallationPage = lazy(() => import("@/pages/installation/installation.page").then((m) => ({ default: m.InstallationPage })));
+const LoginPage = lazy(() => import("@/pages/login/login.page").then((m) => ({ default: m.LoginPage })));
+const ReleasesPage = lazy(() => import("@/pages/releases/releases.page").then((m) => ({ default: m.ReleasesPage })));
+const GalleryPage = lazy(() => import("@/pages/gallery/gallery.page").then((m) => ({ default: m.GalleryPage })));
+const AccountPage = lazy(() => import("@/pages/account/account.page").then((m) => ({ default: m.AccountPage })));
 
 export const routes = [
   {
@@ -30,6 +33,11 @@ export const routes = [
     path: "/releases",
     Component: ReleasesPage,
   },
+  {
+    path: "/gallery",
+    Component: GalleryPage,
+  },
+  { path: "/account", Component: AccountPage },
   {
     path: "/docs",
     Component: DocsPage,

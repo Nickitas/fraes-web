@@ -5,4 +5,5 @@ export const NAV_ITEMS = [
   { path: ROUTES.installation, label: "Установка" },
   { path: ROUTES.downloads, label: "Скачать" },
   { path: ROUTES.releases, label: "Версии" },
+  { path: ROUTES.gallery, label: "Результаты" },
 ] as const;

@@ -1,4 +1,4 @@
-/* deslint-disable */
+/* eslint-disable react-hooks/purity */
 
 import React, { type HTMLAttributes, useCallback, useMemo } from "react";
 import { motion } from "motion/react";

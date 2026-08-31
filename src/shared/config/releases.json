@@ -1,0 +1,12 @@
+{
+  "version": "v2.0",
+  "releaseDate": "2026-08-30",
+  "releaseUrl": "https://github.com/Nickitas/litora-cli/releases/tag/v2.0",
+  "repository": "https://github.com/Nickitas/litora-cli",
+  "files": [
+    { "id": "windows-amd64", "name": "lito-windows-amd64.exe", "os": "windows", "path": "/downloads/windows/lito-windows-amd64.exe", "size": "18.0 MB", "requirements": "Windows 10/11 (x64)", "sha256": "" },
+    { "id": "darwin-amd64", "name": "lito-darwin-amd64", "os": "macos", "path": "/downloads/macos/lito-darwin-amd64", "size": "18.0 MB", "requirements": "macOS 11+ (Intel)", "sha256": "" },
+    { "id": "darwin-arm64", "name": "lito-darwin-arm64", "os": "macos", "path": "/downloads/macos/lito-darwin-arm64", "size": "16.5 MB", "requirements": "macOS 11+ (Apple Silicon)", "sha256": "" },
+    { "id": "linux-amd64", "name": "lito-linux-amd64", "os": "linux", "path": "/downloads/linux/lito-linux-amd64", "size": "17.7 MB", "requirements": "Linux x64", "sha256": "" }
+  ]
+}
